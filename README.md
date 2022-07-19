@@ -74,7 +74,7 @@ public static function form(Form $form): Form
 ### Good to know
 The object stored into the `location` database column have the following format:
 
-```json
+```
 {
   x: Number, // lon,
   y: Number, // lat,
