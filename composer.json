@@ -1,5 +1,6 @@
 {
     "name": "heloufir/filament-leaflet-geosearch",
+
     "description": "Implementation of LeafLet GeoSearch as a Filament Form Field",
     "keywords": [
         "filament",
