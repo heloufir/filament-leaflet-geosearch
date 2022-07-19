@@ -45,7 +45,7 @@
                             if (this.state) {
                                 const obj = (this.state);
                                 defaultMarker = L.marker([obj.y, obj.x]).addTo(map);
-                                map.setView([obj.y, obj.x], 3);
+                                map.setView([obj.y, obj.x], {{ $getZoomLevel() }});
                             }
 
                             const provider = new GeoSearch.OpenStreetMapProvider();
