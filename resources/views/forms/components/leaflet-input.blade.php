@@ -63,7 +63,7 @@
                             const that = this;
 
                             map.on('geosearch/showlocation', function(location) {
-                                that.state = JSON.stringify(location.location);
+                                that.state = location.location;
                                 if (defaultMarker) {
                                     map.removeLayer(defaultMarker);
                                     defaultMarker = null;
