@@ -13,6 +13,13 @@
         <div id="{{ str_replace('.', '-', $getStatePath()) }}-map" style="height: {{$getMapHeight()}}px; z-index: 0;" class="w-full rounded-lg shadow-sm" wire:ignore></div>
 
         @push('scripts')
+            @if($isViewRecord())
+                <style>
+                    .leaflet-control-geosearch {
+                        display: none;
+                    }
+                </style>
+            @endif
             <script>
                 function data() {
                     return {
@@ -27,7 +34,10 @@
                                 searchLabel = this.state.label;
                             }
 
-                            const map = L.map('{{ str_replace('.', '-', $getStatePath()) }}-map').setView([0, 0], 0);
+                            const map = L.map('{{ str_replace('.', '-', $getStatePath()) }}-map', {
+                                zoomControl: {{ $getZoomControl() }},
+                                scrollWheelZoom: {{ $getScrollWheelZoom() }}
+                            }).setView([0, 0], 0);
 
                             L.tileLayer('//{s}.tile.openstreetmap.org/{z}/{x}/{y}.png').addTo(map);
 
