@@ -13,6 +13,7 @@ class LeafletInput extends Field
     protected int $mapHeight = 200;
     protected bool $zoomControl = true;
     protected bool $scrollWheelZoom = true;
+    protected int $zoomLevel = 10;
 
     public function setMapHeight(int $mapHeight): static
     {
@@ -45,6 +46,17 @@ class LeafletInput extends Field
     {
         $this->scrollWheelZoom = $scrollWheelZoom;
         return $this;
+    }
+
+    public function setZoomLevel(int $zoomLevel): static
+    {
+        $this->zoomLevel = $zoomLevel;
+        return $this;
+    }
+
+    public function getZoomLevel(): int
+    {
+        return $this->zoomLevel;
     }
 
     public function isViewRecord(): bool {
