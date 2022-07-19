@@ -67,6 +67,7 @@ public static function form(Form $form): Form
                 ->setMapHeight(300) // Here you can specify a map height in pixels, by default the height is equal to 200
                 ->setZoomControl(false) // Here you can enable/disable zoom control on the map (default: true)
                 ->setScrollWheelZoom(false) // Here you can enable/disable zoom on wheel scroll (default: true)
+                ->setZoomLevel(3) // Here you can change the default zoom level (when the map is loaded for the first time), default value is 10
                 ->required()
             // ...
         ]);
