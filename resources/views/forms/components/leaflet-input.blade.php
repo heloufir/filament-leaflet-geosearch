@@ -8,9 +8,12 @@
     :required="$isRequired()"
     :state-path="$getStatePath()"
 >
+    @php
+        $uniqid = uniqid();
+    @endphp
     <div x-data="data()">
         <span x-text="label()" class="font-bold text-sm"></span>
-        <div id="{{ str_replace('.', '-', $getStatePath()) }}-map" style="height: {{$getMapHeight()}}px; z-index: 0;" class="w-full rounded-lg shadow-sm" wire:ignore></div>
+        <div id="{{ str_replace('.', '-', $getStatePath()) . '-' . $uniqid }}-map" style="height: {{$getMapHeight()}}px; z-index: 0;" class="w-full rounded-lg shadow-sm" wire:ignore></div>
 
         @push('scripts')
             @if($isViewRecord())
@@ -34,7 +37,7 @@
                                 searchLabel = this.state.label;
                             }
 
-                            const map = L.map('{{ str_replace('.', '-', $getStatePath()) }}-map', {
+                            const map = L.map('{{ str_replace('.', '-', $getStatePath()) . '-' . $uniqid }}-map', {
                                 zoomControl: {{ $getZoomControl() }},
                                 scrollWheelZoom: {{ $getScrollWheelZoom() }}
                             }).setView([0, 0], 0);
