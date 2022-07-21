@@ -1,7 +1,4 @@
-@php
-    $uniqid = uniqid();
-@endphp
-    <x-forms::field-wrapper
+<x-forms::field-wrapper
     :id="$getId()"
     :label="$getLabel()"
     :label-sr-only="$isLabelHidden()"
@@ -13,7 +10,7 @@
 >
     <div x-data="data()">
         <span x-text="label()" class="font-bold text-sm"></span>
-        <div id="{{ str_replace('.', '-', $getStatePath()) . '-' . $uniqid }}-map" style="height: {{$getMapHeight()}}px; z-index: 0;" class="w-full rounded-lg shadow-sm" wire:ignore></div>
+        <div id="{{ $getMapId() }}" style="height: {{$getMapHeight()}}px; z-index: 0;" class="w-full rounded-lg shadow-sm" wire:ignore></div>
 
         @push('scripts')
             @if($isViewRecord())
@@ -37,7 +34,7 @@
                                 searchLabel = this.state.label;
                             }
 
-                            const map = L.map('{{ str_replace('.', '-', $getStatePath()) . '-' . $uniqid }}-map', {
+                            const map = L.map('{{ $getMapId() }}', {
                                 zoomControl: {{ $getZoomControl() }},
                                 scrollWheelZoom: {{ $getScrollWheelZoom() }}
                             }).setView([0, 0], 0);
