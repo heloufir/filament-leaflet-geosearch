@@ -62,4 +62,8 @@ class LeafletInput extends Field
     public function isViewRecord(): bool {
         return $this->getLivewire() instanceof ViewRecord;
     }
+
+    public function getMapId(): string {
+        return str_replace('.', '-', $this->getId()) . '-map';
+    }
 }
