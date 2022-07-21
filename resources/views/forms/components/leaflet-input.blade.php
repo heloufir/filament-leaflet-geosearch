@@ -1,4 +1,7 @@
-<x-forms::field-wrapper
+@php
+    $uniqid = uniqid();
+@endphp
+    <x-forms::field-wrapper
     :id="$getId()"
     :label="$getLabel()"
     :label-sr-only="$isLabelHidden()"
@@ -8,9 +11,6 @@
     :required="$isRequired()"
     :state-path="$getStatePath()"
 >
-    @php
-        $uniqid = uniqid();
-    @endphp
     <div x-data="data()">
         <span x-text="label()" class="font-bold text-sm"></span>
         <div id="{{ str_replace('.', '-', $getStatePath()) . '-' . $uniqid }}-map" style="height: {{$getMapHeight()}}px; z-index: 0;" class="w-full rounded-lg shadow-sm" wire:ignore></div>
