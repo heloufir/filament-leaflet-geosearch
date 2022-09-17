@@ -21,7 +21,9 @@ You need to publish assets used by this package:
 php artisan vendor:publish --tag=filament-leaflet-geosearch-assets
 ```
 
-**From the version 1.1.0, you need to register manually the assets (styles and scripts)**
+> **From the version 1.1.0, you need to register manually the assets (styles and scripts)**
+>
+> This decision was made to make the plugin standalone for users who want to use it without Filament administration (only with Filament forms)
 
 - If you are using this package with `Filament administration`, add this lines to the `boot()` function of your `AppServiceProvider`
 ```bash
