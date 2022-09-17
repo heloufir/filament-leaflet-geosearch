@@ -46,6 +46,8 @@ public function boot()
 }
 ```
 
+**Important: Don't forget the `true` flag on the `registerScripts` to make the scripts loaded before Filament core scripts**
+
 - If you are using this package without `Filament administration` (only with `Filament forms`), you can include the styles and scripts into your html layout.
 
 ## Usage
