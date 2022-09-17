@@ -21,6 +21,31 @@ You need to publish assets used by this package:
 php artisan vendor:publish --tag=filament-leaflet-geosearch-assets
 ```
 
+**From the version 1.1.0, you need to register manually the assets (styles and scripts)**
+
+- If you are using this package with `Filament administration`, add this lines to the `boot()` function of your `AppServiceProvider`
+```bash
+public function boot()
+{
+    // ...
+    Filament::serving(function () {
+        // ... 
+        Filament::registerStyles([
+            asset('filament/assets/css/leaflet.css'),
+            asset('filament/assets/css/geosearch.css'),
+        ]);
+        Filament::registerScripts([
+            asset('filament/assets/js/leaflet.js'),
+            asset('filament/assets/js/geosearch.umd.js'),
+        ], true);
+        // ...
+    });
+    // ...
+}
+```
+
+- If you are using this package without `Filament administration` (only with `Filament forms`), you can include the styles and scripts into your html layout.
+
 ## Usage
 ### Model configuration
 In your model you need to add the location column cast:
