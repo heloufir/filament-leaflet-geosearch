@@ -121,7 +121,7 @@ The object stored into the `location` database column have the following format:
 
 ## Support
 
-For fast support, please join the **Filament** community discord and send me a message in this channel [#leaflet-geosearch](https://discord.com/channels/883083792112300104/1001049950983041044)
+For fast support, please join the [**Filament** community](https://filamentphp.com/discord) discord and send me a message in this channel [#leaflet-geosearch](https://discord.com/channels/883083792112300104/1001049950983041044)
 
 ## Credits
 
